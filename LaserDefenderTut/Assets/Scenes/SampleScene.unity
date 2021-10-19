@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipSpeed: 10
+  padding: 0.5
 --- !u!1 &474539496
 GameObject:
   m_ObjectHideFlags: 0
