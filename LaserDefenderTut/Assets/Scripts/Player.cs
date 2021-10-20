@@ -6,20 +6,23 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float shipSpeed = 10f;
     [SerializeField] float padding = 0.5f;
+    [SerializeField] GameObject laserPrefab;
+
     float minX;
     float maxX;
     float minY;
     float maxY;
-    // Start is called before the first frame update
+    float projectileSpeed = 20f;
+
     void Start()
     {
         SetMoveBoundaries();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
+        Fire();
     }
 
     private void Move()
@@ -44,5 +47,14 @@ public class Player : MonoBehaviour
         maxX = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
         minY = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         maxY = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+    }
+
+    private void Fire()
+    {
+        if(Input.GetButtonDown("Fire1"))
+        {
+            GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+        }
     }
 }
