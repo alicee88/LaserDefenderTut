@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     float minY;
     float maxY;
     float projectileSpeed = 20f;
+    float projectileFiringPeriod = 0.2f;
+    Coroutine firingCoroutine;
 
     void Start()
     {
@@ -51,10 +53,25 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
+        {
+            firingCoroutine = StartCoroutine(FireContinuously());
+        }
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(firingCoroutine);
+        }
+    }
+
+    IEnumerator FireContinuously()
+    {
+        while (true)
         {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
+
 }
