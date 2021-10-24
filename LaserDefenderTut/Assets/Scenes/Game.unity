@@ -220,6 +220,8 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: 41631cc49ecc5444da206944443a64a2, type: 2}
   - {fileID: 11400000, guid: 3e10d4f249b5cb04fb92b210a1be1759, type: 2}
+  - {fileID: 11400000, guid: 650cef9f4972c2a41a0c7a7462ac8fe8, type: 2}
+  - {fileID: 11400000, guid: a0ddd16ab9ce5bf478adadaf713b88e3, type: 2}
 --- !u!4 &362162802
 Transform:
   m_ObjectHideFlags: 0
