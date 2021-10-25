@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float shipSpeed = 10f;
+    [SerializeField] int health = 200;
     [SerializeField] float padding = 0.5f;
     [SerializeField] GameObject laserPrefab;
 
@@ -74,4 +75,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        if (damageDealer)
+        {
+            health -= damageDealer.GetDamage();
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }
