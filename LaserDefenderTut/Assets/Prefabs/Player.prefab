@@ -100,6 +100,7 @@ MonoBehaviour:
   health: 200
   padding: 0.5
   laserPrefab: {fileID: 6877243085848231201, guid: a99f2e9e28632804eb926a8ca993bdb4, type: 3}
+  explosionPrefab: {fileID: 8023090428281094615, guid: 5fa809fb4c96de046862452793d6d9ad, type: 3}
 --- !u!60 &5107841796736394744
 PolygonCollider2D:
   m_ObjectHideFlags: 0

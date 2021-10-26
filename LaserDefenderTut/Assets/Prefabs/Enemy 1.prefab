@@ -114,6 +114,7 @@ MonoBehaviour:
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 2
   laserPrefab: {fileID: 6877243085848231201, guid: 3f028b32162c80a49a060588f3a88422, type: 3}
+  explosionPrefab: {fileID: 8023090428281094615, guid: 5fa809fb4c96de046862452793d6d9ad, type: 3}
 --- !u!70 &6805385692491812475
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

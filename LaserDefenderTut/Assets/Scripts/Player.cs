@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] int health = 200;
     [SerializeField] float padding = 0.5f;
     [SerializeField] GameObject laserPrefab;
+    [SerializeField] GameObject explosionPrefab;
 
     float minX;
     float maxX;
@@ -90,7 +91,14 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
+        Destroy(explosion, 0.5f);
+        Destroy(gameObject);
     }
 }
