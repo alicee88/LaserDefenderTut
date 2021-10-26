@@ -9,6 +9,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 2f;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] GameObject explosionPrefab;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] float deathVolume = 0.5f;
+    [SerializeField] AudioClip laserSound;
+    [SerializeField] float laserVolume = 0.5f;
+
     float projectileSpeed = 10.0f;
 
     // Start is called before the first frame update
@@ -39,6 +44,7 @@ public class Enemy : MonoBehaviour
     {
         GameObject projectile = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
+        AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, laserVolume);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,6 +69,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathVolume);
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
         Destroy(explosion, 0.5f);
         Destroy(gameObject);

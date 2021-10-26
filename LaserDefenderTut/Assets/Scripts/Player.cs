@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 0.5f;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] GameObject explosionPrefab;
+    [SerializeField] AudioClip laserSound;
+    [SerializeField] float laserVolume = 1.0f;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] float deathVolume = 1.0f;
 
     float minX;
     float maxX;
@@ -72,6 +76,7 @@ public class Player : MonoBehaviour
         {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, laserVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
@@ -99,6 +104,7 @@ public class Player : MonoBehaviour
     {
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
         Destroy(explosion, 0.5f);
+        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathVolume);
         Destroy(gameObject);
     }
 }

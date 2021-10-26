@@ -101,6 +101,10 @@ MonoBehaviour:
   padding: 0.5
   laserPrefab: {fileID: 6877243085848231201, guid: a99f2e9e28632804eb926a8ca993bdb4, type: 3}
   explosionPrefab: {fileID: 8023090428281094615, guid: 5fa809fb4c96de046862452793d6d9ad, type: 3}
+  laserSound: {fileID: 8300000, guid: 70b9b9b9e0af7a8438438629622814b5, type: 3}
+  laserVolume: 0.25
+  deathSound: {fileID: 8300000, guid: 156fa28e2b46f4c44abb4be3de1f9739, type: 3}
+  deathVolume: 1
 --- !u!60 &5107841796736394744
 PolygonCollider2D:
   m_ObjectHideFlags: 0
