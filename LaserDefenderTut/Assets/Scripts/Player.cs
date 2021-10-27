@@ -22,9 +22,12 @@ public class Player : MonoBehaviour
     float projectileFiringPeriod = 0.2f;
     Coroutine firingCoroutine;
 
+    SceneLoader sceneLoader;
+
     void Start()
     {
         SetMoveBoundaries();
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     void Update()
@@ -106,5 +109,6 @@ public class Player : MonoBehaviour
         Destroy(explosion, 0.5f);
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathVolume);
         Destroy(gameObject);
+        sceneLoader.LoadGameOverScreen();
     }
 }
