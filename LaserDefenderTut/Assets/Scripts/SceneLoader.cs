@@ -7,7 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadGameOverScreen()
     {
-        SceneManager.LoadScene("GameOver");
+        StartCoroutine(WaitForGameOver());
     }
 
     public void LoadGame()
@@ -18,5 +18,11 @@ public class SceneLoader : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    private IEnumerator WaitForGameOver()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("GameOver");
     }
 }
