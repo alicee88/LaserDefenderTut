@@ -4,7 +4,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int health = 100;
-    [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 2f;
     [SerializeField] GameObject laserPrefab;
@@ -14,8 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip laserSound;
     [SerializeField] float laserVolume = 0.5f;
     [SerializeField] int score = 100;
+    [SerializeField] float projectileSpeed = 10.0f;
 
-    float projectileSpeed = 10.0f;
+    float shotCounter;
     GameSession gs;
 
     // Start is called before the first frame update
