@@ -17,7 +17,6 @@ public class MusicPlayer : MonoBehaviour
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
-            Debug.Log("DESTROYING");
         }
         else
         {
